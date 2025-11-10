@@ -53,6 +53,23 @@ class UserService:
         """
         return self.users
     @staticmethod
+    def get_adult_users_of(users_data : list[User]):
+        """Return the list of users who are adults (age >= 18).
+
+        This method filters the current in-memory list of users and returns
+        only those whose age is 18 or older. It does not modify the internal
+        users list, but returns a new list.
+
+        Returns:
+            list[User]: A list of User instances representing adults.
+    
+        Example:
+            >>> adult_users = user_service.get_adult_users()
+            >>> for user in adult_users:
+            ...     print(user.name, user.age)
+        """
+        return [user for user in self.users if user.age >= 18]
+    @staticmethod
     def get_users_of_team_of(users_data : list[User], team) -> list[User]:
         """_Filters a list of users by team._
 
