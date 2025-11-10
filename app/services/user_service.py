@@ -52,11 +52,28 @@ class UserService:
             list[User]: A list of User model instances currently loaded in memory.
         """
         return self.users
+    def get_adult_users(self):
+        """_Return the list of users who are adults (age >= 18)._
+
+        This method filters the current in-memory 
+        list of users and returns only those whose age is 18 or older. 
+        
+        It does not modify the internal users list, but returns a new list.
+
+        Returns:
+            list[User]: A list of User instances representing adults.
+
+        Example:
+            >>> adult_users = user_service.get_adult_users()
+            >>> for user in adult_users:
+            ...     print(user.name, user.age)
+        """
+        return UserService.get_adult_users_of(self.users)
     @staticmethod
     def get_adult_users_of(users_data : list[User]):
         """Return the list of users who are adults (age >= 18).
 
-        This method filters the current in-memory list of users and returns
+        This method filters a list of users and returns
         only those whose age is 18 or older. It does not modify the internal
         users list, but returns a new list.
 
@@ -64,11 +81,12 @@ class UserService:
             list[User]: A list of User instances representing adults.
     
         Example:
-            >>> adult_users = user_service.get_adult_users()
+            >>> users = user_service.get_users()
+            >>> adult_users = user_service.get_adult_users_of_(users)
             >>> for user in adult_users:
             ...     print(user.name, user.age)
         """
-        return [user for user in self.users if user.age >= 18]
+        return [user for user in users_data if user.age >= 18]
     @staticmethod
     def get_users_of_team_of(users_data : list[User], team) -> list[User]:
         """_Filters a list of users by team._
@@ -100,7 +118,7 @@ class UserService:
         for user in users_data:
             nb_users+=1
             average_age+=user.age
-        return round(average_age = average_age / nb_users, 1)
+        return round(average_age / nb_users, 1)
     @staticmethod
     def get_n_oldest_users(users_data : list[User], n : int) -> list[User]:
         """_Returns the N oldest users from a list._
@@ -112,6 +130,6 @@ class UserService:
         Returns:
             List[User]: The N oldest users, sorted by descending age.
         """
-        heapq.nlargest(n,users_data, key=lambda u: u.age)
+        return heapq.nlargest(n,users_data, key=lambda u: u.age)
 # Global singleton instance accessible throughout the application
 user_service = UserService()
