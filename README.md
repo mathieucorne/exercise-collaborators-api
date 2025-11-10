@@ -49,3 +49,7 @@ python -m pip install -r requirements.txt
 ```
 
 ### Start a FastAPI Dev Server
+
+```bash
+fastapi dev app/main.py
+```
