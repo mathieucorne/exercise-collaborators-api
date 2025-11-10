@@ -36,10 +36,10 @@ python -m pip install --upgrade pip
 ./Scripts/Activate.ps1
 ```
 
--   On Linux, MacOS, or using Bash
+-   On Linux, MacOS
 
 ```bash
-source .venv/bin/activate
+source ./Scripts/activate
 ```
 
 3. **Install the Python dependencies**
