@@ -36,7 +36,7 @@ def test_read_users_no_users():
     response = client.get("/users/")
     data = response.json()
     assert data["status"] == 422
-    assert response["message"] == "No Users Data Available"
+    assert data["message"] == "No Users Data Available"
 
 def test_refresh_users_route():
     response = client.get("/users/refresh")
