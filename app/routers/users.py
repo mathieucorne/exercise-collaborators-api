@@ -52,7 +52,7 @@ async def read_users(team : str = None):
             ]
         }
     """
-    users : list[User] = user_service.get_users()
+    users : list[User] = user_service.get_adult_users()
     if len(users) == 0:
         logger_service.warning("HTTP Request - get_stats: No Users Data Available")
         return JSONService.format(status=422, message="No Users Data Available")
