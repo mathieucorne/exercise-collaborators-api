@@ -1,0 +1,6 @@
+fastapi[standard]
+httpx[http2]
+pytest
+pylint
+pydantic
+email-validator

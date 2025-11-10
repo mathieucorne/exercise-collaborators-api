@@ -1,0 +1,7 @@
+*.cfg
+*.pyc
+Scripts
+Lib
+Include
+share
+app.log*

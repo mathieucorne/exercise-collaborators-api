@@ -1,0 +1,6 @@
+name,email,age,team,start_date
+Alice,a@example.com,17,Ops,2024-09-01
+Bob,b@example.com,23,Data,2023-11-15
+Charlie,c@example.com,45,Backend,2022-04-03
+Diane,d@example.com,19,Frontend,2025-01-10
+Eve,e@example.com,34,Ops,2021-06-20
