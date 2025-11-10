@@ -83,7 +83,7 @@ class UserService:
         for user in users_data:
             nb_users+=1
             average_age+=user.age
-        average_age = average_age / nb_users
+        return round(average_age = average_age / nb_users, 1)
     @staticmethod
     def get_n_oldest_users(users_data : list[User], n : int) -> list[User]:
         """_Returns the N oldest users from a list._
